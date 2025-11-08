@@ -1,0 +1,37 @@
+package com.blandev.lottery.backend.infrastructure.persistence.mapper;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
+
+import com.blandev.lottery.backend.domain.model.LotteryTicket;
+import com.blandev.lottery.backend.domain.model.Sale;
+import com.blandev.lottery.backend.infrastructure.persistence.entity.SaleEntity;
+
+@Component
+public class SaleEntityMapper {
+
+    public Sale toDomain(SaleEntity entity) {
+        List<LotteryTicket> tickets = entity.getTickets().stream()
+                .map(LotteryTicketEntityMapper::toDomain)
+                .collect(Collectors.toList());
+
+        return new Sale(
+                entity.getId(),
+                entity.getCustomer().getId(),
+                tickets,
+                entity.getTotalAmount(),
+                entity.getSaleDate());
+    }
+
+    public SaleEntity toEntity(Sale sale) {
+        SaleEntity entity = new SaleEntity();
+        entity.setId(sale.getId());
+        entity.setTotalAmount(sale.getTotalAmount());
+        entity.setSaleDate(sale.getSaleDate());
+
+        return entity;
+    }
+
+}
