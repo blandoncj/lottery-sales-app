@@ -12,7 +12,7 @@ public class Sale {
   private BigDecimal totalAmount;
   private LocalDateTime saleDate;
 
-  public Sale(Long customerId, List<LotteryTicket> tickets, BigDecimal totalAmount) {
+  public Sale(Long customerId, List<LotteryTicket> tickets) {
     this.customerId = customerId;
     this.tickets = tickets;
     this.totalAmount = calculateTotalAmount();
