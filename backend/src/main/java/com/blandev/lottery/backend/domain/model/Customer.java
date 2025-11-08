@@ -1,8 +1,5 @@
 package com.blandev.lottery.backend.domain.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Customer {
   private Long id;
   private String documentNumber;
