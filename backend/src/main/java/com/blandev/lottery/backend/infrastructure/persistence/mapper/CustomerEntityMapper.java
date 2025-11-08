@@ -1,11 +1,8 @@
 package com.blandev.lottery.backend.infrastructure.persistence.mapper;
 
-import org.springframework.stereotype.Component;
-
 import com.blandev.lottery.backend.domain.model.Customer;
 import com.blandev.lottery.backend.infrastructure.persistence.entity.CustomerEntity;
 
-@Component
 public class CustomerEntityMapper {
 
     public static Customer toDomain(CustomerEntity entity) {
