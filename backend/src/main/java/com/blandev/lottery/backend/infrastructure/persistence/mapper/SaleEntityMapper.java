@@ -8,7 +8,7 @@ import com.blandev.lottery.backend.infrastructure.persistence.entity.SaleEntity;
 
 public class SaleEntityMapper {
 
-    public Sale toDomain(SaleEntity entity) {
+    public static Sale toDomain(SaleEntity entity) {
         List<LotteryTicket> tickets = entity.getTickets().stream()
                 .map(LotteryTicketEntityMapper::toDomain)
                 .toList();
@@ -21,7 +21,7 @@ public class SaleEntityMapper {
                 entity.getSaleDate());
     }
 
-    public SaleEntity toEntity(Sale sale) {
+    public static SaleEntity toEntity(Sale sale) {
         SaleEntity entity = new SaleEntity();
         entity.setId(sale.getId());
         entity.setTotalAmount(sale.getTotalAmount());
