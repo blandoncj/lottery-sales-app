@@ -1,11 +1,8 @@
 package com.blandev.lottery.backend.infrastructure.persistence.mapper;
 
-import org.springframework.stereotype.Component;
-
 import com.blandev.lottery.backend.domain.model.LotteryTicket;
 import com.blandev.lottery.backend.infrastructure.persistence.entity.LotteryTicketEntity;
 
-@Component
 public class LotteryTicketEntityMapper {
 
     public static LotteryTicket toDomain(LotteryTicketEntity entity) {
