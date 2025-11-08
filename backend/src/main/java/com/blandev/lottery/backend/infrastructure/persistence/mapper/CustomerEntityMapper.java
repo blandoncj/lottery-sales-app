@@ -8,7 +8,7 @@ import com.blandev.lottery.backend.infrastructure.persistence.entity.CustomerEnt
 @Component
 public class CustomerEntityMapper {
 
-    public Customer toDomain(CustomerEntity entity) {
+    public static Customer toDomain(CustomerEntity entity) {
         return new Customer(
                 entity.getId(),
                 entity.getDocumentNumber(),
@@ -16,7 +16,7 @@ public class CustomerEntityMapper {
                 entity.getEmail());
     }
 
-    public CustomerEntity toEntity(Customer domain) {
+    public static CustomerEntity toEntity(Customer domain) {
         CustomerEntity entity = new CustomerEntity();
         entity.setId(domain.getId());
         entity.setDocumentNumber(domain.getDocumentNumber());
