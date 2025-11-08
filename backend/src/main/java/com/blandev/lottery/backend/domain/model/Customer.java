@@ -8,7 +8,6 @@ public class Customer {
   private String documentNumber;
   private String name;
   private String email;
-  private List<Sale> sales = new ArrayList<>();
 
   public Customer(String documentNumber, String name, String email) {
     this.documentNumber = documentNumber;
@@ -16,12 +15,11 @@ public class Customer {
     this.email = email;
   }
 
-  public Customer(Long id, String documentNumber, String name, String email, List<Sale> sales) {
+  public Customer(Long id, String documentNumber, String name, String email) {
     this.id = id;
     this.documentNumber = documentNumber;
     this.name = name;
     this.email = email;
-    this.sales = sales;
   }
 
   public Long getId() {
@@ -54,14 +52,6 @@ public class Customer {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-  public List<Sale> getSales() {
-    return sales;
-  }
-
-  public void setSales(List<Sale> sales) {
-    this.sales = sales;
   }
 
 }
