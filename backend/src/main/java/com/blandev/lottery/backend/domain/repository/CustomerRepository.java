@@ -10,6 +10,8 @@ public interface CustomerRepository {
 
   Optional<Customer> findById(Long id);
 
+  Optional<Customer> findByDocumentNumber(String documentNumber);
+
   List<Customer> findAll();
 
   boolean existsByDocumentNumber(String documentNumber);
