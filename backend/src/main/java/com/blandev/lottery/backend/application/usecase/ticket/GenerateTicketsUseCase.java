@@ -19,14 +19,10 @@ public class GenerateTicketsUseCase {
 
     private final LotteryTicketRepository ticketRepository;
     private final LotteryDrawRepository drawRepository;
-    private final TicketMapper ticketMapper;
 
-    public GenerateTicketsUseCase(LotteryTicketRepository ticketRepository,
-            LotteryDrawRepository drawRepository,
-            TicketMapper ticketMapper) {
+    public GenerateTicketsUseCase(LotteryTicketRepository ticketRepository, LotteryDrawRepository drawRepository) {
         this.ticketRepository = ticketRepository;
         this.drawRepository = drawRepository;
-        this.ticketMapper = ticketMapper;
     }
 
     @Transactional
@@ -38,7 +34,7 @@ public class GenerateTicketsUseCase {
         List<LotteryTicket> savedTickets = ticketRepository.saveAll(tickets);
 
         return savedTickets.stream()
-                .map(ticketMapper::toResponseDTO)
+                .map(TicketMapper::toResponseDTO)
                 .toList();
     }
 

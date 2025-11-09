@@ -13,17 +13,15 @@ import com.blandev.lottery.backend.domain.repository.LotteryDrawRepository;
 public class GetAllLotteryDrawsUseCase {
 
   private final LotteryDrawRepository lotteryDrawRepository;
-  private final LotteryDrawMapper lotteryDrawMapper;
 
-  public GetAllLotteryDrawsUseCase(LotteryDrawRepository lotteryDrawRepository, LotteryDrawMapper lotteryDrawMapper) {
+  public GetAllLotteryDrawsUseCase(LotteryDrawRepository lotteryDrawRepository) {
     this.lotteryDrawRepository = lotteryDrawRepository;
-    this.lotteryDrawMapper = lotteryDrawMapper;
   }
 
   @Transactional(readOnly = true)
   public List<LotteryDrawResponseDTO> execute() {
     return lotteryDrawRepository.findAll().stream()
-        .map(lotteryDrawMapper::toResponseDTO)
+        .map(LotteryDrawMapper::toResponseDTO)
         .toList();
   }
 }

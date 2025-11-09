@@ -23,15 +23,12 @@ public class SellTicketsUseCase {
   private final SaleRepository saleRepository;
   private final CustomerRepository customerRepository;
   private final LotteryTicketRepository ticketRepository;
-  private final SaleMapper saleMapper;
 
   public SellTicketsUseCase(SaleRepository saleRepository,
       CustomerRepository customerRepository,
-      LotteryTicketRepository ticketRepository,
-      SaleMapper saleMapper) {
+      LotteryTicketRepository ticketRepository) {
     this.saleRepository = saleRepository;
     this.customerRepository = customerRepository;
-    this.saleMapper = saleMapper;
     this.ticketRepository = ticketRepository;
   }
 
@@ -44,7 +41,7 @@ public class SellTicketsUseCase {
     Sale sale = new Sale(dto.customerId(), tickets);
     Sale savedSale = saleRepository.save(sale);
 
-    return saleMapper.toResponseDTO(savedSale);
+    return SaleMapper.toResponseDTO(savedSale);
   }
 
   private void validateCustomerExists(Long customerId) {

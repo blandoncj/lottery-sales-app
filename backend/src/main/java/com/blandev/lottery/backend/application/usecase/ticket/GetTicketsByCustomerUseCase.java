@@ -18,14 +18,10 @@ public class GetTicketsByCustomerUseCase {
 
     private final SaleRepository saleRepository;
     private final CustomerRepository customerRepository;
-    private final TicketMapper ticketMapper;
 
-    public GetTicketsByCustomerUseCase(SaleRepository saleRepository,
-            CustomerRepository customerRepository,
-            TicketMapper ticketMapper) {
+    public GetTicketsByCustomerUseCase(SaleRepository saleRepository, CustomerRepository customerRepository) {
         this.saleRepository = saleRepository;
         this.customerRepository = customerRepository;
-        this.ticketMapper = ticketMapper;
     }
 
     @Transactional(readOnly = true)
@@ -39,7 +35,7 @@ public class GetTicketsByCustomerUseCase {
                 .toList();
 
         return tickets.stream()
-                .map(ticketMapper::toResponseDTO)
+                .map(TicketMapper::toResponseDTO)
                 .toList();
     }
 

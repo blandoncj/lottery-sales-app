@@ -17,14 +17,10 @@ public class GetSalesByCustomerUseCase {
 
   private final SaleRepository saleRepository;
   private final CustomerRepository customerRepository;
-  private final SaleMapper saleMapper;
 
-  public GetSalesByCustomerUseCase(SaleRepository saleRepository,
-      CustomerRepository customerRepository,
-      SaleMapper saleMapper) {
+  public GetSalesByCustomerUseCase(SaleRepository saleRepository, CustomerRepository customerRepository) {
     this.saleRepository = saleRepository;
     this.customerRepository = customerRepository;
-    this.saleMapper = saleMapper;
   }
 
   @Transactional(readOnly = true)
@@ -34,7 +30,7 @@ public class GetSalesByCustomerUseCase {
     List<Sale> sales = saleRepository.findByCustomerId(customerId);
 
     return sales.stream()
-        .map(saleMapper::toResponseDTO)
+        .map(SaleMapper::toResponseDTO)
         .toList();
   }
 

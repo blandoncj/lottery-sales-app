@@ -15,11 +15,9 @@ import jakarta.transaction.Transactional;
 public class CreateCustomerUseCase {
 
   private final CustomerRepository customerRepository;
-  private final CustomerMapper customerMapper;
 
-  public CreateCustomerUseCase(CustomerRepository customerRepository, CustomerMapper customerMapper) {
+  public CreateCustomerUseCase(CustomerRepository customerRepository) {
     this.customerRepository = customerRepository;
-    this.customerMapper = customerMapper;
   }
 
   @Transactional
@@ -29,7 +27,7 @@ public class CreateCustomerUseCase {
     Customer customer = new Customer(dto.documentNumber(), dto.name(), dto.email());
     Customer savedCustomer = customerRepository.save(customer);
 
-    return customerMapper.toResponseDTO(savedCustomer);
+    return CustomerMapper.toResponseDTO(savedCustomer);
   }
 
   private void validateUniqueConstraints(CreateCustomerDTO dto) {

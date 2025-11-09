@@ -14,11 +14,9 @@ import com.blandev.lottery.backend.domain.repository.LotteryDrawRepository;
 public class CreateLotteryDrawUseCase {
 
   private final LotteryDrawRepository lotteryDrawRepository;
-  private final LotteryDrawMapper lotteryDrawMapper;
 
-  public CreateLotteryDrawUseCase(LotteryDrawRepository lotteryDrawRepository, LotteryDrawMapper lotteryDrawMapper) {
+  public CreateLotteryDrawUseCase(LotteryDrawRepository lotteryDrawRepository) {
     this.lotteryDrawRepository = lotteryDrawRepository;
-    this.lotteryDrawMapper = lotteryDrawMapper;
   }
 
   @Transactional
@@ -28,7 +26,7 @@ public class CreateLotteryDrawUseCase {
     LotteryDraw draw = new LotteryDraw(dto.name(), dto.drawDate());
     LotteryDraw savedDraw = lotteryDrawRepository.save(draw);
 
-    return lotteryDrawMapper.toResponseDTO(savedDraw);
+    return LotteryDrawMapper.toResponseDTO(savedDraw);
   }
 
   private void validateName(String name) {
