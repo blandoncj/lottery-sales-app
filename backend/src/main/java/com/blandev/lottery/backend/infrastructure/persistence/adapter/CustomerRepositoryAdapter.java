@@ -34,6 +34,12 @@ public class CustomerRepositoryAdapter implements CustomerRepository {
     }
 
     @Override
+    public Optional<Customer> findByDocumentNumber(String documentNumber) {
+        return jpaRepository.findByDocumentNumber(documentNumber)
+                .map(CustomerEntityMapper::toDomain);
+    }
+
+    @Override
     public List<Customer> findAll() {
         return jpaRepository.findAll().stream()
                 .map(CustomerEntityMapper::toDomain)
