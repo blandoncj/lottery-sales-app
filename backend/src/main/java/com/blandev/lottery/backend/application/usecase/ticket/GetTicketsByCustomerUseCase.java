@@ -14,13 +14,13 @@ import com.blandev.lottery.backend.domain.repository.CustomerRepository;
 import com.blandev.lottery.backend.domain.repository.SaleRepository;
 
 @Service
-public class GetTicketsByCustomer {
+public class GetTicketsByCustomerUseCase {
 
     private final SaleRepository saleRepository;
     private final CustomerRepository customerRepository;
     private final TicketMapper ticketMapper;
 
-    public GetTicketsByCustomer(SaleRepository saleRepository,
+    public GetTicketsByCustomerUseCase(SaleRepository saleRepository,
             CustomerRepository customerRepository,
             TicketMapper ticketMapper) {
         this.saleRepository = saleRepository;
