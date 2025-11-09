@@ -68,7 +68,7 @@ public class LotteryTicketRepositoryAdapter implements LotteryTicketRepository {
 
     @Override
     public Optional<LotteryTicket> findByDrawIdAndNumber(Long drawId, String number) {
-        return jpaRepository.findByDrawIdAndNumber(drawId, number)
+        return jpaRepository.findByLotteryDraw_IdAndNumber(drawId, number)
                 .map(LotteryTicketEntityMapper::toDomain);
     }
 
