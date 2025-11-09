@@ -11,8 +11,6 @@ public interface JpaLotteryTicketRepository extends JpaRepository<LotteryTicketE
 
     List<LotteryTicketEntity> findByLotteryDrawId(Long lotteryDrawId);
 
-    List<LotteryTicketEntity> findByCustomerId(Long customerId);
-
-    Optional<LotteryTicketEntity> findByDrawIdAndNumber(Long drawId, String number);
+    Optional<LotteryTicketEntity> findByLotteryDraw_IdAndNumber(Long drawId, String number);
 
 }
