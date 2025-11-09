@@ -8,7 +8,7 @@ import com.blandev.lottery.backend.domain.model.LotteryTicket;
 @Component
 public class TicketMapper {
 
-    public TicketResponseDTO toResponseDTO(LotteryTicket ticket) {
+    public static TicketResponseDTO toResponseDTO(LotteryTicket ticket) {
         return new TicketResponseDTO(
                 ticket.getId(),
                 ticket.getNumber(),

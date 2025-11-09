@@ -12,9 +12,9 @@ import com.blandev.lottery.backend.domain.model.Sale;
 @Component
 public class SaleMapper {
 
-  public SaleResponseDTO toResponseDTO(Sale sale) {
+  public static SaleResponseDTO toResponseDTO(Sale sale) {
     List<TicketResponseDTO> ticketDTOs = sale.getTickets().stream()
-        .map(this::toTicketResponseDTO)
+        .map(SaleMapper::toTicketResponseDTO)
         .toList();
 
     return new SaleResponseDTO(
@@ -25,7 +25,7 @@ public class SaleMapper {
         sale.getSaleDate());
   }
 
-  private TicketResponseDTO toTicketResponseDTO(LotteryTicket ticket) {
+  private static TicketResponseDTO toTicketResponseDTO(LotteryTicket ticket) {
     return new TicketResponseDTO(
         ticket.getId(),
         ticket.getNumber(),

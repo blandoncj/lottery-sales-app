@@ -8,7 +8,7 @@ import com.blandev.lottery.backend.domain.model.Customer;
 @Component
 public class CustomerMapper {
 
-    public CustomerResponseDTO toResponseDTO(Customer customer) {
+    public static CustomerResponseDTO toResponseDTO(Customer customer) {
         return new CustomerResponseDTO(
                 customer.getId(),
                 customer.getDocumentNumber(),

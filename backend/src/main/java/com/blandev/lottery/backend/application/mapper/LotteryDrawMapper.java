@@ -8,7 +8,7 @@ import com.blandev.lottery.backend.domain.model.LotteryDraw;
 @Component
 public class LotteryDrawMapper {
 
-    public LotteryDrawResponseDTO toResponseDTO(LotteryDraw draw) {
+    public static LotteryDrawResponseDTO toResponseDTO(LotteryDraw draw) {
         return new LotteryDrawResponseDTO(
                 draw.getId(),
                 draw.getName(),
