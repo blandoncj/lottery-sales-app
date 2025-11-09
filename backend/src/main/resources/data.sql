@@ -22,6 +22,8 @@ INSERT INTO customers (id, document_number, name, email) VALUES
 (19, '1190123456', 'David Herrera', 'david.herrera@example.com'),
 (20, '1201234567', 'Isabela Vargas', 'isabela.vargas@example.com');
 
+-- reset the sequence for customers id to avoid conflicts
+ALTER TABLE customers ALTER COLUMN id RESTART WITH 21;
 
 INSERT INTO lottery_draws (id, name, draw_date) VALUES
 (1, 'Lotería de Boyacá', '2026-01-01T21:00:00'),
@@ -34,6 +36,9 @@ INSERT INTO lottery_draws (id, name, draw_date) VALUES
 (8, 'Lotería de Bogotá', '2026-08-05T21:00:00'),
 (9, 'Baloto Noche', '2026-09-10T21:00:00'),
 (10, 'Lotería de Tolima', '2026-10-15T21:00:00');
+
+-- reset the sequence for lottery_draws id to avoid conflicts
+ALTER TABLE lottery_draws ALTER COLUMN id RESTART WITH 11;
 
 INSERT INTO lottery_tickets (id, number, price, status, draw_id) VALUES
 (1, '00001', 5000, 'AVAILABLE', 1),
@@ -87,6 +92,9 @@ INSERT INTO lottery_tickets (id, number, price, status, draw_id) VALUES
 (49, '00049', 11000, 'AVAILABLE', 10),
 (50, '00050', 11000, 'AVAILABLE', 10);
 
+-- reset the sequence for lottery_tickets id to avoid conflicts
+ALTER TABLE lottery_tickets ALTER COLUMN id RESTART WITH 51;
+
 INSERT INTO sales (id, customer_id, total_amount, sale_date) VALUES
 (1, 1, 10000, '2025-11-01T10:30:00'),
 (2, 2, 5000, '2025-11-02T11:00:00'),
@@ -108,6 +116,9 @@ INSERT INTO sales (id, customer_id, total_amount, sale_date) VALUES
 (18, 18, 7000, '2025-11-18T17:00:00'),
 (19, 19, 9500, '2025-11-19T18:00:00'),
 (20, 20, 8000, '2025-11-20T19:00:00');
+
+-- reset the sequence for sales id to avoid conflicts
+ALTER TABLE sales ALTER COLUMN id RESTART WITH 21;
 
 INSERT INTO sale_tickets (sale_id, ticket_id) VALUES
 (1, 1),
