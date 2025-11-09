@@ -117,15 +117,6 @@ También se encuentra el archivo `schema-demo.sql` que define el esquema de la b
 
 ## Endpoints Disponibles
 
-- `POST /api/v1/customers` - Crear un nuevo cliente.
-- `POST /api/v1/lottery-draws` - Crear un nuevo sorteo de lotería.
-- `GET /api/v1/lottery-draws` - Listar todos los sorteos de lotería.
-- `POST /api/v1/lottery-tickets/generate` - Generar billetes para un sorteo específico.
-- `POST /api/v1/lottery-tickets/sell` - Vender billetes a un cliente.
-- `GET /api/v1/lottery-tickets/draw/{drawId}` - Listar billetes de un sorteo específico.
-- `GET /api/v1/lottery-tickets/customer/{customerId}` - Listar billetes vendidos a un cliente específico. 
-- `GET /api/v1/sales/customer/{customerId}` - Consultar ventas realizadas a un cliente específico.
-
 Para consultar los endpoints disponibles y su documentación, puedes acceder a Swagger UI en: `http://localhost:8080/swagger-ui.html` después de iniciar la aplicación.
 
 Aquí encontrarás una lista completa de los endpoints REST, junto con detalles sobre los parámetros de entrada, respuestas esperadas y posibles códigos de estado HTTP.
