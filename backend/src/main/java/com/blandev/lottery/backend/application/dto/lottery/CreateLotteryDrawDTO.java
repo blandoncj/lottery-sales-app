@@ -7,6 +7,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateLotteryDrawDTO(
-    @NotBlank(message = "Name is required") String name,
-    @NotNull(message = "Draw date is required") @Future(message = "Draw date must be in the future") LocalDateTime drawDate) {
+        @NotBlank(message = "Name is required") String name,
+        @NotNull(message = "Draw date is required") @Future(message = "Draw date must be in the future") LocalDateTime drawDate) {
 }
