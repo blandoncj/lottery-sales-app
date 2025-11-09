@@ -15,6 +15,7 @@ API REST para la gestión de **ventas de lotería**, desarrollada con **Spring B
   - [Datos de ejemplo](#datos-de-ejemplo)
   - [Endpoints Disponibles](#endpoints-disponibles)
   - [Ejecución de la aplicación](#ejecución-de-la-aplicación)
+  - [Ejecución de pruebas](#ejecución-de-pruebas)
   - [Previsualizaciones](#previsualizaciones)
     - [Swagger UI](#swagger-ui)
     - [H2 Console](#h2-console)
@@ -159,6 +160,15 @@ Para ejecutar la aplicación localmente sin hacer uso del frontend, sigue estos 
 5. La aplicación estará disponible en `http://localhost:8080`.
 
 6. Accede a Swagger UI para explorar los endpoints: `http://localhost:8080/swagger-ui.html`.
+
+---
+
+## Ejecución de pruebas
+Para ejecutar las pruebas unitarias, utiliza el siguiente comando:
+
+```bash
+mvn test
+```
 
 ---
 
