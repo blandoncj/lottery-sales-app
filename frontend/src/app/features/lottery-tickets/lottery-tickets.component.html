@@ -1,0 +1,206 @@
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">Gestión de Billetes</h1>
+      <p class="text-gray-600 mt-2">Genera billetes y realiza ventas</p>
+    </div>
+
+    <div
+      *ngIf="successMessage"
+      class="mb-6 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg"
+    >
+      {{ successMessage }}
+    </div>
+
+    <div
+      *ngIf="error"
+      class="mb-6 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg"
+    >
+      {{ error }}
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md mb-8">
+      <div class="border-b border-gray-200">
+        <div class="flex">
+          <button
+            (click)="setActiveTab('generate')"
+            [class.border-blue-600]="activeTab === 'generate'"
+            [class.text-blue-600]="activeTab === 'generate'"
+            class="px-6 py-4 font-medium border-b-2 border-transparent hover:text-blue-600 transition-colors"
+          >
+            Generar Billetes
+          </button>
+          <button
+            (click)="setActiveTab('sell')"
+            [class.border-blue-600]="activeTab === 'sell'"
+            [class.text-blue-600]="activeTab === 'sell'"
+            class="px-6 py-4 font-medium border-b-2 border-transparent hover:text-blue-600 transition-colors"
+          >
+            Vender Billetes
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'generate'" class="p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Generar Billetes para un Sorteo</h2>
+
+        <form (ngSubmit)="generateTickets()" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Sorteo * </label>
+              <select
+                [(ngModel)]="generateForm.drawId"
+                name="drawId"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              >
+                <option [value]="0">Selecciona un sorteo</option>
+                <option *ngFor="let draw of draws" [value]="draw.id">
+                  {{ draw.name }}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Cantidad * </label>
+              <input
+                type="number"
+                [(ngModel)]="generateForm.quantity"
+                name="quantity"
+                min="1"
+                placeholder="Ej: 100"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Precio por Billete *
+              </label>
+              <input
+                type="number"
+                [(ngModel)]="generateForm.price"
+                name="price"
+                min="0"
+                placeholder="Ej: 5000"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <button
+              type="submit"
+              [disabled]="loading"
+              class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            >
+              {{ loading ? 'Generando...' : 'Generar Billetes' }}
+            </button>
+
+            <button
+              type="button"
+              (click)="resetGenerateForm()"
+              class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+            >
+              Limpiar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div *ngIf="activeTab === 'sell'" class="p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Vender Billetes</h2>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Sorteo * </label>
+              <select
+                [(ngModel)]="selectedDrawForSale"
+                (ngModelChange)="onDrawChangeForSale()"
+                name="selectedDraw"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option [value]="0">Selecciona un sorteo</option>
+                <option *ngFor="let draw of draws" [value]="draw.id">
+                  {{ draw.name }}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Cliente * </label>
+              <select
+                [(ngModel)]="sellForm.customerId"
+                name="customerId"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option [value]="0">Selecciona un cliente</option>
+                <option *ngFor="let customer of customers" [value]="customer.id">
+                  {{ customer.name }} - {{ customer.documentNumber }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div *ngIf="selectedDrawForSale > 0">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Billetes Disponibles</h3>
+
+            <div *ngIf="loading" class="text-center py-8 text-gray-500">Cargando billetes...</div>
+
+            <div
+              *ngIf="!loading && availableTickets.length === 0"
+              class="text-center py-8 text-gray-500"
+            >
+              No hay billetes disponibles para este sorteo
+            </div>
+
+            <div
+              *ngIf="!loading && availableTickets.length > 0"
+              class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 max-h-96 overflow-y-auto p-4 bg-gray-50 rounded-lg"
+            >
+              <button
+                *ngFor="let ticket of availableTickets"
+                (click)="toggleTicketSelection(ticket.id)"
+                [class.bg-blue-600]="isTicketSelected(ticket.id)"
+                [class.text-white]="isTicketSelected(ticket.id)"
+                [class.bg-white]="!isTicketSelected(ticket.id)"
+                [class.text-gray-700]="!isTicketSelected(ticket.id)"
+                class="border-2 border-gray-300 rounded-lg p-3 hover:border-blue-500 transition-all"
+              >
+                <div class="text-center">
+                  <div class="text-lg font-bold">{{ ticket.number }}</div>
+                  <div class="text-sm">${{ ticket.price }}</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div
+            *ngIf="selectedTickets.length > 0"
+            class="bg-blue-50 border border-blue-200 rounded-lg p-4"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-600">
+                  Billetes seleccionados:
+                  <span class="font-semibold">{{ selectedTickets.length }}</span>
+                </p>
+                <p class="text-2xl font-bold text-blue-600">Total: ${{ calculateTotal() }}</p>
+              </div>
+              <button
+                (click)="sellTickets()"
+                [disabled]="loading || sellForm.customerId === 0"
+                class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+              >
+                {{ loading ? 'Procesando...' : 'Confirmar Venta' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
