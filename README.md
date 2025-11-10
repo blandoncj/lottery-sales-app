@@ -131,8 +131,6 @@ Para información específica de cada módulo, consulta:
 
 - Proceso de venta intuitivo
 - Selección de cliente y billetes
-- Cálculo automático de totales
-- Registro de transacciones
 
 ---
 
@@ -232,4 +230,3 @@ Verifica que el backend esté corriendo en `http://localhost:8080` antes de inic
 
 - GitHub: [@blandoncj](https://github.com/blandoncj)
 - Email: <jacoboblandon94@gmail.com>
-
