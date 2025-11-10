@@ -106,8 +106,8 @@ The frontend will be available at: **<http://localhost:4200>**
 
 For specific information about each module, check:
 
-- **[📖 backend readme](./backend/readme.md)** - architecture, endpoints, configuration and tests
-- **[📖 frontend readme](./frontend/readme.md)** - structure, components, configuration and styles
+- **[📖 backend readme](./backend/README.md)** - architecture, endpoints, configuration and tests
+- **[📖 frontend readme](./frontend/README.md)** - structure, components, configuration and styles
 
 ---
 
