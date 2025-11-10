@@ -176,7 +176,7 @@ npm install -g @angular/cli
     npm install
 ```
 
-    O con yarn:
+O con yarn:
 
 ```bash
     yarn install
