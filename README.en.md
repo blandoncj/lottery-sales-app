@@ -1,7 +1,9 @@
 # 🎰 Lottery sales app
 
 <div align="center">
-**idioma:** 🇬🇧 english | [🇪🇸 spanish](./README.md)
+
+**Language:** 🇬🇧 english | [🇪🇸 spanish](./README.md)
+
 </div>
 
 Complete lottery ticket sales management system developed with **spring boot** and **angular**.

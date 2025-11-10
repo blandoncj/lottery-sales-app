@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**idioma:** 🇪🇸 español | [🇬🇧 english](./README.en.md)
+**Idioma:** 🇪🇸 español | [🇬🇧 english](./README.en.md)
 
 </div>
 
@@ -216,21 +216,21 @@ export const environment = {
 | post   | `/api/v1/lottery-tickets/sell`      | vender billetes      |
 | get    | `/api/v1/sales/customer/{id}`       | historial de cliente |
 
-**documentación completa:** <http://localhost:8080/swagger-ui.html>
+**Documentación completa:** <http://localhost:8080/swagger-ui.html>
 
 ---
 
-## 🐛 troubleshooting
+## 🐛 Troubleshooting
 
-### error: cannot connect to backend
+### Error: cannot connect to backend
 
 Verifica que el backend esté corriendo en `http://localhost:8080` antes de iniciar el frontend
 
 ---
 
-## 👨‍💻 autor
+## 👨‍💻 Autor
 
-**jacobo Blandón Castro**
+**Jacobo Blandón Castro**
 
-- github: [@blandoncj](https://github.com/blandoncj)
-- email: <jacoboblandon94@gmail.com>
+- GitHub: [@blandoncj](https://github.com/blandoncj)
+- Email: <jacoboblandon94@gmail.com>
