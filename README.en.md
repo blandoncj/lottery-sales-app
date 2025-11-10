@@ -4,14 +4,14 @@
 
 **Language:** 🇬🇧 english | [🇪🇸 spanish](./README.md)
 
-</div>
-
-Complete lottery ticket sales management system developed with **spring boot** and **angular**.
-
 [![java](https://img.shields.io/badge/java-17-orange.svg)](https://www.oracle.com/java/)
 [![spring boot](https://img.shields.io/badge/spring%20boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![angular](https://img.shields.io/badge/angular-18+-red.svg)](https://angular.io/)
 [![tailwind css](https://img.shields.io/badge/tailwind%20css-3.x-blue.svg)](https://tailwindcss.com/)
+
+</div>
+
+Complete lottery ticket sales management system developed with **spring boot** and **angular**.
 
 ---
 
