@@ -1,68 +1,74 @@
-# 🎰 Lottery Sales App
+# 🎰 Lottery sales app
 
-Sistema completo de gestión de ventas de lotería desarrollado con **Spring Boot** y **Angular**.
+<div align="center">
 
-[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Angular](https://img.shields.io/badge/Angular-18+-red.svg)](https://angular.io/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-blue.svg)](https://tailwindcss.com/)
+**idioma:** 🇪🇸 español | [🇬🇧 english](./README.en.md)
+
+</div>
+
+Sistema completo de gestión de ventas de lotería desarrollado con **spring boot** y **angular**.
+
+[![java](https://img.shields.io/badge/java-17-orange.svg)](https://www.oracle.com/java/)
+[![spring boot](https://img.shields.io/badge/spring%20boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![angular](https://img.shields.io/badge/angular-18+-red.svg)](https://angular.io/)
+[![tailwind css](https://img.shields.io/badge/tailwind%20css-3.x-blue.svg)](https://tailwindcss.com/)
 
 ---
 
-## 📋 Descripción General
+## 📋 Descripción general
 
 Aplicación full-stack para la gestión integral de ventas de billetes de lotería que permite:
 
-- ✅ Registrar y administrar clientes
-- ✅ Crear y gestionar sorteos
-- ✅ Generar billetes automáticamente
-- ✅ Realizar ventas de billetes a clientes
-- ✅ Consultar historial de compras
-- ✅ Visualizar billetes disponibles por sorteo
+- ✅ registrar y administrar clientes
+- ✅ crear y gestionar sorteos
+- ✅ generar billetes automáticamente
+- ✅ realizar ventas de billetes a clientes
+- ✅ consultar historial de compras
+- ✅ visualizar billetes disponibles por sorteo
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## 🏗️ Arquitectura del sistema
 
 ```
 lottery-sales-app/
-├── backend/          # API REST con Spring Boot
+├── backend/          # api rest con spring boot
 │   ├── src/
 │   ├── pom.xml
-│   └── README.md     → Documentación del Backend
+│   └── readme.md     → documentación del backend
 │
-└── frontend/         # Aplicación web con Angular
+└── frontend/         # aplicación web con angular
     ├── src/
     ├── package.json
-    └── README.md     → Documentación del Frontend
+    └── readme.md     → documentación del frontend
 ```
 
-### Backend (Spring Boot)
+### Backend (spring boot)
 
-- **Clean Architecture** - Separación en capas (Domain, Application, Infrastructure)
-- **API RESTful** con Spring Web
-- **Base de datos H2** en memoria
-- **Documentación con Swagger/OpenAPI**
-- **Validaciones con Spring Validation**
+- **clean architecture** - separación en capas (domain, application, infrastructure)
+- **api restful** con spring web
+- **base de datos h2** en memoria
+- **documentación con swagger/openapi**
+- **validaciones con spring validation**
 
-### Frontend (Angular)
+### Frontend (angular)
 
-- **Arquitectura modular** con componentes standalone
-- **Diseño responsivo** con Tailwind CSS
-- **Gestión de estado** con RxJS
-- **Comunicación HTTP** con servicios dedicados
+- **arquitectura modular** con componentes standalone
+- **diseño responsivo** con tailwind css
+- **gestión de estado** con rxjs
+- **comunicación http** con servicios dedicados
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick start
 
 ### Prerequisitos
 
-- **Java 17+**
-- **Maven 3.8+**
-- **Node.js 18+**
+- **java 17+**
+- **maven 3.8+**
+- **node.js 18+**
 - **npm 9+** o **yarn**
-- **Angular CLI 18+**
+- **angular cli 18+**
 
 ### 1️⃣ Clonar el repositorio
 
@@ -71,7 +77,7 @@ git clone git@github.com:blandoncj/lottery-sales-app.git
 cd lottery-sales-app
 ```
 
-### 2️⃣ Iniciar el Backend
+### 2️⃣ Iniciar el backend
 
 ```bash
 cd backend
@@ -81,10 +87,10 @@ mvn spring-boot:run
 
 El backend estará disponible en: **<http://localhost:8080>**
 
-- Swagger UI: <http://localhost:8080/swagger-ui.html>
-- H2 Console: <http://localhost:8080/h2-console>
+- swagger ui: <http://localhost:8080/swagger-ui.html>
+- h2 console: <http://localhost:8080/h2-console>
 
-### 3️⃣ Iniciar el Frontend
+### 3️⃣ Iniciar el frontend
 
 ```bash
 cd ../frontend
@@ -96,31 +102,31 @@ El frontend estará disponible en: **<http://localhost:4200>**
 
 ---
 
-## 📚 Documentación Detallada
+## 📚 Documentación detallada
 
 Para información específica de cada módulo, consulta:
 
-- **[📖 Backend README](./backend/README.md)** - Arquitectura, endpoints, configuración y pruebas
-- **[📖 Frontend README](./frontend/README.md)** - Estructura, componentes, configuración y estilos
+- **[📖 backend readme](./backend/readme.md)** - arquitectura, endpoints, configuración y pruebas
+- **[📖 frontend readme](./frontend/readme.md)** - estructura, componentes, configuración y estilos
 
 ---
 
-## 🎯 Funcionalidades Principales
+## 🎯 Funcionalidades principales
 
-### Gestión de Clientes
+### Gestión de clientes
 
 - Registro de nuevos clientes con validación
 - Listado completo de clientes
 - Consulta de historial de compras por cliente
 
-### Gestión de Sorteos
+### Gestión de sorteos
 
 - Creación de sorteos con fecha y nombre
 - Listado de sorteos disponibles
 - Visualización de billetes asociados a cada sorteo
 - Venta directa desde la vista de sorteos
 
-### Gestión de Billetes
+### Gestión de billetes
 
 - Generación automática de billetes por lote
 - Configuración de cantidad y precio
@@ -138,25 +144,25 @@ Para información específica de cada módulo, consulta:
 
 ### Backend
 
-| Tecnología      | Versión | Propósito                |
+| tecnología      | versión | propósito                |
 | --------------- | ------- | ------------------------ |
-| Java            | 17      | Lenguaje de programación |
-| Spring Boot     | 3.x     | Framework principal      |
-| Spring Data JPA | -       | Persistencia de datos    |
-| H2 Database     | -       | Base de datos en memoria |
-| Swagger/OpenAPI | -       | Documentación de API     |
-| JUnit 5         | -       | Testing                  |
-| Mockito         | -       | Mocking para tests       |
+| java            | 17      | lenguaje de programación |
+| spring boot     | 3.x     | framework principal      |
+| spring data jpa | -       | persistencia de datos    |
+| h2 database     | -       | base de datos en memoria |
+| swagger/openapi | -       | documentación de api     |
+| junit 5         | -       | testing                  |
+| mockito         | -       | mocking para tests       |
 
 ### Frontend
 
-| Tecnología    | Versión | Propósito                |
+| tecnología    | versión | propósito                |
 | ------------- | ------- | ------------------------ |
-| Angular       | 18+     | Framework frontend       |
-| TypeScript    | 5+      | Lenguaje de programación |
-| Tailwind CSS  | 3+      | Framework de estilos     |
-| RxJS          | 7+      | Programación reactiva    |
-| Angular Forms | -       | Gestión de formularios   |
+| angular       | 18+     | framework frontend       |
+| typescript    | 5+      | lenguaje de programación |
+| tailwind css  | 3+      | framework de estilos     |
+| rxjs          | 7+      | programación reactiva    |
+| angular forms | -       | gestión de formularios   |
 
 ---
 
@@ -173,7 +179,7 @@ mvn test
 
 ## 🔧 Configuración
 
-### Variables de Entorno - Backend
+### Variables de entorno - backend
 
 Edita `backend/src/main/resources/application.properties`:
 
@@ -184,47 +190,47 @@ spring.datasource.password=
 server.port=8080
 ```
 
-### Variables de Entorno - Frontend
+### Variables de entorno - frontend
 
 Edita `frontend/src/environments/environment.ts`:
 
 ```typescript
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:8080/api/v1",
+  apiurl: "http://localhost:8080/api/v1",
 };
 ```
 
 ---
 
-## 📝 API Endpoints (Resumen)
+## 📝 Api Endpoints (resumen)
 
-| Método | Endpoint                            | Descripción          |
+| método | endpoint                            | descripción          |
 | ------ | ----------------------------------- | -------------------- |
-| GET    | `/api/v1/customers`                 | Listar clientes      |
-| POST   | `/api/v1/customers`                 | Crear cliente        |
-| GET    | `/api/v1/lottery-draws`             | Listar sorteos       |
-| POST   | `/api/v1/lottery-draws`             | Crear sorteo         |
-| POST   | `/api/v1/lottery-tickets/generate`  | Generar billetes     |
-| GET    | `/api/v1/lottery-tickets/draw/{id}` | Billetes por sorteo  |
-| POST   | `/api/v1/lottery-tickets/sell`      | Vender billetes      |
-| GET    | `/api/v1/sales/customer/{id}`       | Historial de cliente |
+| get    | `/api/v1/customers`                 | listar clientes      |
+| post   | `/api/v1/customers`                 | crear cliente        |
+| get    | `/api/v1/lottery-draws`             | listar sorteos       |
+| post   | `/api/v1/lottery-draws`             | crear sorteo         |
+| post   | `/api/v1/lottery-tickets/generate`  | generar billetes     |
+| get    | `/api/v1/lottery-tickets/draw/{id}` | billetes por sorteo  |
+| post   | `/api/v1/lottery-tickets/sell`      | vender billetes      |
+| get    | `/api/v1/sales/customer/{id}`       | historial de cliente |
 
-**Documentación completa:** <http://localhost:8080/swagger-ui.html>
+**documentación completa:** <http://localhost:8080/swagger-ui.html>
 
 ---
 
-## 🐛 Troubleshooting
+## 🐛 troubleshooting
 
-### Error: Cannot connect to backend
+### error: cannot connect to backend
 
 Verifica que el backend esté corriendo en `http://localhost:8080` antes de iniciar el frontend
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 autor
 
-**Jacobo Blandón Castro**
+**jacobo Blandón Castro**
 
-- GitHub: [@blandoncj](https://github.com/blandoncj)
-- Email: <jacoboblandon94@gmail.com>
+- github: [@blandoncj](https://github.com/blandoncj)
+- email: <jacoboblandon94@gmail.com>
