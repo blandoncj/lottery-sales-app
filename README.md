@@ -160,8 +160,6 @@ Para información específica de cada módulo, consulta:
 
 ---
 
----
-
 ## 🧪 Testing
 
 ### Backend
